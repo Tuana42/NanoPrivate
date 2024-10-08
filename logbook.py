@@ -1,3 +1,4 @@
+
 pink = "\033[95m"
 purple = "\033[35m"
 grey= "\033[37m"
@@ -12,7 +13,6 @@ red = '\33[91m'
 
 
 def logbook():
-    print(f"{pink}Welcome to Logbook\n")
     date= input("Enter the date of today(dd-mm-yyyy): \n")
     feelings = input("put your feelings down to relief: \n")
     f"logbook_{date}.txt"
@@ -20,54 +20,56 @@ def logbook():
     with open ('logbook.txt', 'a') as file:
            file.write(f"{date}: {feelings}\n")
 
-    print("your feelings are saved\n"
-          "you will return to the menu\n")
+    print(f"\n{pink}your feelings are saved\n"
+          "\nyou will return to the menu")
+    return menu_logbook()
 
 def read_logbook():
     while True:
-        date = (input("type the date of the day you want to read in: "))
+        date = (input(f"{purple}type the date of the day you want to read in: "))
         filename = f"logbook_{date}.txt"
 
         try:
-            with open(filename, 'r') as file:
+            with open('logbook.txt', 'r') as file:
                 inhoud = file.readlines()
                 if inhoud:
-                    print(f"\nYour feelings from {date}:")
+                    print(f"\n{purple}Your feelings from {date}:")
                     for line in inhoud:
-                        print(line.strip())
-                else:
-                    print(f"There are no feelings recorded for {date}.")
-        except FileNotFoundError:
-            print(f"There are no feelings for the date {date}.")
+                        if line [0:10] == date:
+                            print(line.strip())
 
-        input("Do you want to try another date? (yes or no): ")
-        if exit == "no":
-            return None
-        elif exit == "yes":
-            print("let's write another entry!")
+        except FileNotFoundError:
+            print(f"{purple}There are no feelings for the date {date}.")
+
+        retry = input("Do you want to try another date? (yes or no): \n")
+        if retry == "no":
+            print("you will return to the menu")
+            menu_logbook()
+        elif retry == "yes":
+            print("let's write another entry!\n")
+        return read_logbook()
 
 def menu_logbook():
+    print(f"{pink}Welcome to the logbook\n")
+
     while True:
-        logbook_menu = (
-             "\nWelcome to the logbook\n"
-              f"{pink} 1.Write your feelings{reset}\n"
-              f" {purple}2.Read your feelings{reset}\n"
-              f" {grey}3.exit.{reset}"
-        )
+        logbook_menu = (f"{pink}1.Write your feelings{reset}\n"
+                        f"{purple}2.Read your feelings{reset}\n"
+                        f"3.exit")
+
         print(logbook_menu)
 
-        keuzen = input("What do you want to do today? (chose between 1 and 3): ")
+        keuzen = input(f"{pink}What do you want to do today? (chose between 1 and 3): ")
 
         if keuzen == "1":
-             print("you chose for write your feelings\n")
+             print("You chose for write your feelings\n")
              logbook()
         elif keuzen == "2":
             print("u chose for read your feelings\n")
             read_logbook()
         elif keuzen == "3":
             print("you chose to exit, I hope you enjoy your day\n")
-            return
+
         else:
             print("That's not a valid option")
-
         return

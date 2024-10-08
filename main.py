@@ -15,20 +15,16 @@ blue= "\033[34m"
 red = '\33[91m'
 
 def menu():
-    print(f"{purple} WELCOME TO THE NANO PRIVET APP{reset}")
-    name = input("\nHi, what is your name?: \n")
+    print(f"{purple} WELCOME TO THE NANO PRIVET APP\n")
+    name = input(f"Hi, what is your name?: \n")
 
     while True:
-        keuzen = input(f"hi {name}, what do you want to do today?\n1.numbergame\n2.logbook\n")
+        keuzen = input(f"{pink}Hi {name}, what do you want to do today?\n1.numbergame\n2.logbook\n")
         print(keuzen.lower())
         if keuzen.lower == "numbergame" or keuzen == "1":
             menu_numbergame()
         elif keuzen.lower == "logbook" or keuzen == "2":
             menu_logbook()
-        elif keuzen == "exit":
-            print('you chose exit')
-
         else:
-            print('you chose wrong option')
+            print('you chose wrong option try it again')
 menu()
-#

@@ -44,7 +44,7 @@ def numbergame():
 
         for attempts in range(1, 11):
             try:
-                guess = int(input("Guess a number: "))
+                guess = int(input(f"{purple}Guess a number: "))
             except ValueError:
                 print("Invalid answer, please enter a number.")
                 continue
@@ -64,13 +64,13 @@ def numbergame():
                 player_won = True
                 break
             elif abs(guess - number) == 1:
-                print("You're almost there! Just 1 away!")
+                print(f"{reset}You're almost there! Just 1 away!{reset}")
             elif abs(guess - number) <= 2:
-                print("You're very close!")
+                print(f"{pink}You're very close!{reset}")
             elif guess < number:
-                print("Guess higher!")
+                print(f"{pink}Guess higher!{reset}")
             else:
-                print("Guess lower!")
+                print(f"{purple}Guess lower!{reset}")
 
             if attempts % 5 == 0:
                 print(f"\nYou've made {attempts} guesses so far.\n")
@@ -78,10 +78,12 @@ def numbergame():
         if not player_won:
             print(f"{red}Sorry{reset}, you didn't guess the number. It was {number}\n.")
 
-        print("Do you want to play again?")
-        play_again = input("yes or no: ")
-        if play_again.lower() != "yes":
-                print("\nThanks for playing! See you next time.")
+        play_again = input(f"Do you want to play again?\nAnswer with {green}yes{reset} or {red}no{reset}: \n")
+        if play_again.lower() == "no":
+                print(f"\n{pink}Thanks for playing! See you next time{reset}.\n{purple}you are returning to the main menu{reset}")
                 break
+        elif play_again.lower() == "yes":
+            print("I am happy to play again!\n")
+            numbergame()
 
         return numbergame
