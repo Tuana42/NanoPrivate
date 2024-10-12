@@ -14,9 +14,6 @@ red = '\33[91m'
 
 def menu_numbergame():
 
-     # start_game = input("Are you ready to play a number game???\nAnswer with yes or no: \n")
-     #
-     # if start_game.lower() == "yes":
         print("I am so happy to play a game with you!\n")
         input("Press enter for the game rules")
         print("\n                          * Game Rules *")
@@ -29,10 +26,6 @@ def menu_numbergame():
         print("                            *Good Luck*")
         print("                          \nLet's start!\n")
         numbergame()
-     # else:
-     #     print("Okay, maybe another time!")
-     #     menu_numbergame()
-     # return
 
 def numbergame():
     play_again = "yes"
@@ -76,7 +69,7 @@ def numbergame():
                 print(f"\nYou've made {attempts} guesses so far.\n")
 
         if not player_won:
-            print(f"{red}Sorry{reset}, you didn't guess the number. It was {number}\n.")
+            print(f"{red}Sorry{reset}, you didn't guess the number, It was {number}.\n")
 
         play_again = input(f"Do you want to play again?\nAnswer with {green}yes{reset} or {red}no{reset}: \n")
         if play_again.lower() == "no":

@@ -15,7 +15,7 @@ blue= "\033[34m"
 red = '\33[91m'
 
 def menu():
-    print(f"{purple} WELCOME TO THE NANO PRIVET APP\n")
+    print(f"{purple}WELCOME TO THE NANO PRIVET APP\n")
     name = input(f"Hi, what is your name?: \n")
 
     while True:
