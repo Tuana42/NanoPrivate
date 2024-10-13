@@ -2,6 +2,7 @@ import random
 from logbook import menu_logbook
 from NumberGame import menu_numbergame
 
+#kleuren die ik gebruikt
 pink = "\033[95m"
 purple = "\033[35m"
 grey= "\033[37m"
@@ -13,6 +14,8 @@ yellow= "\033[93m"
 green= "\033[92m"
 blue= "\033[34m"
 red = '\33[91m'
+
+"""Dit is het hoofdmenu van het spel. De speler mag kiezen tussen 'numbergame' en 'logbook' """
 
 def menu():
     print(f"{purple}WELCOME TO THE NANO PRIVET APP\n")

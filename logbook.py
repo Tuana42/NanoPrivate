@@ -12,11 +12,12 @@ grey_background = "\033[100m"
 pinkt_background = "\033[45m"
 RESET = "\033[0m"
 
+"""Dit is het logbook, de lezer typte hier zijn/haar/hen gevoelens uit"""
 def logbook():
     date= input("Enter the date of today(dd-mm-yyyy): \n")
     feelings = input("put your feelings down to relief: \n")
 
-    f"logbook_{date}.txt"
+    # f"logbook_{date}.txt"
 
     with open ('logbook.txt', 'a') as file:
            file.write(f"{date}: {feelings}\n")
@@ -25,33 +26,32 @@ def logbook():
           f"\n{purple}you will return to the menu\n")
     return menu_logbook()
 
+
+"""De lezer kan hier zijn/haar/hen gevoelens terug lezen"""
 def read_logbook():
 
     while True:
         date = (input(f"{purple}type the date of the day you want to read in dd-mm-yyyy: "))
         print(f"\n{purple}Your feelings from {date}:")
-        # filename = f"logbook_{date}.txt"
-
 
         with open('logbook.txt', 'r') as file:
             inhoud = file.readlines()
 
-
             if inhoud:
-                valid_date = False
+                date_exist = False
+
                 for line in inhoud:
                     if line[0:10] == date:
                         print(line.strip())
-                        valid_date = True
+                        date_exist = True
                         break
 
-                if not valid_date:
+                if not date_exist:
                     print(f"{purple}There are no feelings for the date {date}")
                     continue
             else:
                 print("please enter a valid date")
                 continue
-
 
         retry = input("Do you want to try another date? (yes or no): \n")
         if retry == "no":
@@ -61,6 +61,7 @@ def read_logbook():
             print("let's write another entry!\n")
         return read_logbook()
 
+"""Dit is het menu van het logbook. """
 def menu_logbook():
     print(f"{pink}Welcome to the logbook\n")
 

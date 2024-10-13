@@ -1,5 +1,6 @@
 import random
 
+#kleuren die ik heb gebruikt
 pink = "\033[95m"
 purple = "\033[35m"
 grey= "\033[37m"
@@ -12,8 +13,8 @@ green= "\033[92m"
 blue= "\033[34m"
 red = '\33[91m'
 
+"""Spel regels van het spel"""
 def menu_numbergame():
-
         print("I am so happy to play a game with you!\n")
         input("Press enter for the game rules")
         print("\n                          * Game Rules *")
@@ -27,6 +28,7 @@ def menu_numbergame():
         print("                          \nLet's start!\n")
         numbergame()
 
+"""Hier begint het nummer spel"""
 def numbergame():
     play_again = "yes"
 
@@ -64,6 +66,7 @@ def numbergame():
                 print(f"{pink}Guess higher!{reset}")
             else:
                 print(f"{purple}Guess lower!{reset}")
+
 
             if attempts % 5 == 0:
                 print(f"\nYou've made {attempts} guesses so far.\n")
